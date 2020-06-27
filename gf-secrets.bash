@@ -14,7 +14,7 @@ gf-secrets() {
 
 	echo "----- Fetching gau resulsts by fff"
 	echo "${GAU}" | fff -s 200 -o ${OUT}/ # Save only 200 status code
-	cd ${OUT}/
+	[[ -d "${OUT}" ]] && cd ${OUT}/ || { echo -e "\nNo resulsts from fff! Exit."; return; }
 
 	echo "----- Digging secrets"
 	for i in `gf -list`; do [[ ${i} =~ "_secrets"* ]] && gf ${i}; done
