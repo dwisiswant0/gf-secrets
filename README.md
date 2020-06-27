@@ -27,7 +27,7 @@ Then copy all JSON pattern files into `~/.gf` directory.
 Finding for testing point with [gau](https://github.com/lc/gau) and [fff](https://github.com/tomnomnom/fff).
 
 ```
-▶ gau [host] -subs | cut -d"?" -f1 | grep -E "\.js(?:onp?)?$" | tee urls.txt
+▶ gau -subs [host] | cut -d"?" -f1 | grep -E "\.js(?:onp?)?$" | tee urls.txt
 ▶ sort -u urls.txt | fff -s 200 -o out/
 ```
 
