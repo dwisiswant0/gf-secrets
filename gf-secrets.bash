@@ -6,7 +6,7 @@ gf-secrets() {
 
 	echo "----- Getting files from $1 by gau"
 	# Specify for JS/JSON/JSONP files
-	gau $1 -subs | cut -d"?" -f1 | grep -E "\.js(?:onp?)?$" | tee ${OUT}.txt
+	gau -subs $1 | cut -d"?" -f1 | grep -E "\.js(?:onp?)?$" | tee ${OUT}.txt
 
 	# Checking gau results
 	local GAU=$(sort -u ${OUT}.txt)
