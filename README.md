@@ -1,6 +1,6 @@
 # :key: gf-secrets
 
-Secret and/ credential patterns used for `gf`.
+Secret and/or credential patterns used for `gf`.
 
 ## Requirements :sparkles:
 
@@ -10,24 +10,27 @@ Secret and/ credential patterns used for `gf`.
 
 Clone this repository.
 
-```
+```bash
 ▶ git clone https://github.com/dwisiswant0/gf-secrets
 ```
 
 Then copy all JSON pattern files into `~/.gf` directory.
 
-```
+```bash
 ▶ cd gf-secrets/
 ▶ cp -a .gf/ $HOME
 ```
 
-## Workaround :recycle:
+**See also**:
 
+- [secpat2gf](https://github.com/dwisiswant0/secpat2gf): convert secret patterns to gf compatible.
+
+## Workaround :recycle:
 
 Finding for testing point with [gau](https://github.com/lc/gau) and [fff](https://github.com/tomnomnom/fff).
 
-```
-▶ gau -subs [host] | cut -d"?" -f1 | grep -E "\.js(?:onp?)?$" | tee urls.txt
+```bash
+▶ gau -subs [host] | cut -d"?" -f1 | grep -E "\.js(onp?)?$" | tee urls.txt
 ▶ sort -u urls.txt | fff -s 200 -o out/
 ```
 
@@ -35,8 +38,8 @@ After we save response from known URLs, it's time to digging for secrets.
 
 ### Usage :speech_balloon: 
 
-```
-▶ for i in `gf -list`; do [[ ${i} =~ "_secrets"* ]] && gf ${i}; done
+```bash
+▶ ./gf-secrets.sh
 ```
 
 You will see _stdout_ results in your terminal if grep recursively turns match.
@@ -45,7 +48,7 @@ You will see _stdout_ results in your terminal if grep recursively turns match.
 
 [![contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwisiswant0/gf-secrets/issues)
 
-If you find a general pattern for secrets and/ credentials, feel free to open pull request. :green_heart:
+If you find a general pattern for secrets and/or credentials, feel free to open pull request. :green_heart:
 
 ## License :page_facing_up:
 
